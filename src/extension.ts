@@ -1,6 +1,5 @@
 'use strict';
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
+
 import * as vscode from 'vscode';
 import CommandRunner from './command-runner';
 import ActiveEditorListener from './active-editor-listener'
@@ -34,6 +33,8 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Active TextEditor listener
     vscode.window.onDidChangeActiveTextEditor(ActiveEditorListener.onChange)
+    
+    ActiveEditorListener.onChange(vscode.window.activeTextEditor)
 }
 
 // this method is called when your extension is deactivated

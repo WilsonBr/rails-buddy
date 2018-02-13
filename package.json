@@ -18,31 +18,31 @@
         "commands": [
             {
                 "command": "extension.rModel",
-                "title": "Open Rails model"
+                "title": "Rails: Open Rails model"
             },
             {
                 "command": "extension.rController",
-                "title": "Open Rails controller"
+                "title": "Rails: Open Rails controller"
             },
             {
                 "command": "extension.rUnitTest",
-                "title": "Open Rails unit test"
+                "title": "Rails: Open Rails unit test"
             },
             {
                 "command": "extension.rFunctionalTest",
-                "title": "Open Rails functional test"
+                "title": "Rails: Open Rails controller test"
             },
-            {
+            {   
                 "command": "extension.rView",
-                "title": "Open Rails view"
+                "title": "Rails: Open Rails view"
             },
             {
                 "command": "extension.rMigration",
-                "title": "Open Rails DB migration"
+                "title": "Rails: Open Rails DB migration"
             },
             {
                 "command": "extension.rRelated",
-                "title": "Open Rails Related File"
+                "title": "Rails: Open Rails Related File"
             }        
         ]
     },

@@ -2,6 +2,7 @@
 
 import * as vscode from 'vscode';
 import { REG_EXP_PER_FILE_TYPE, RailsFileType } from './commons'
+import { GlobPattern } from 'vscode';
 
 class ActiveEditorListener {
     private static currentEditorFileType: RailsFileType
@@ -49,26 +50,51 @@ class ActiveEditorListener {
         }
 
         const documentPath = ActiveEditorListener.activeTextEditor.document.uri.path
+        const documentOpener = (fileSearchPattern: GlobPattern) => {
+            vscode.workspace.findFiles(fileSearchPattern).then(function(result){
+                if(result && result.length > 0){
+                    console.log(`Related file: ${result[0]}`)
+                    if(result.length > 1){
+                        console.warn(`Multiple matching paths while opening related rails file ${result.join(',')}`)
+                    }
+                    vscode.window.showTextDocument(result[0], {
+                        preserveFocus: true,
+                        preview: true
+                    })
+                }
+            })
+        }
+
         let matcher
 
         switch(ActiveEditorListener.currentEditorFileType){
             case RailsFileType.Model:
                 if(matcher = REG_EXP_PER_FILE_TYPE.MODEL.exec(documentPath)){
-                    const testName = matcher[1].replace(/^(.+)_model$/, "$1_test.rb")
-                    vscode.workspace.findFiles(`test/unit/${testName}`).then(function(result){
-                        if(result && result.length > 0){
-                            console.log(`Related file: ${result[0]}`)
-                            vscode.window.showTextDocument(result[0], {
-                                preserveFocus: true,
-                                preview: true
-                            })
-                    
-                        }
-
-                    })
-
+                    const testName = matcher[1].replace(/^(.+)$/, "$1_test.rb")
+                    documentOpener(`test/unit/${testName}`)
+                }
+                break
+                
+            case RailsFileType.UnitTest:
+                if(matcher = REG_EXP_PER_FILE_TYPE.UNIT_TEST.exec(documentPath)){
+                    const modelName = matcher[1].replace(/^(.+)_test$/, "$1.rb")
+                    documentOpener(`app/models/${modelName}`)
                 }
 
+                break
+
+            case RailsFileType.Controller:
+                if(matcher = REG_EXP_PER_FILE_TYPE.CONTROLLER.exec(documentPath)){
+                    const testName = matcher[1].replace(/^(.+)$/, "$1_test.rb")
+                    documentOpener(`test/{controllers,functional}/${testName}`)
+                }
+                break
+
+            case RailsFileType.FunctionalTest:
+                if(matcher = REG_EXP_PER_FILE_TYPE.FUNCTIONAL_TEST.exec(documentPath)){
+                    const controllerName = matcher[1].replace(/^(.+)_test$/, "$1.rb")
+                    documentOpener(`app/controllers/${controllerName}`)
+                }
                 break
         }
     }
