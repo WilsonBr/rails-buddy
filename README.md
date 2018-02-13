@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # rails-buddy README
 
 This is the README for your extension "rails-buddy". After writing up a brief description, we recommend including the following sections.
@@ -63,3 +64,7 @@ Added features X, Y, and Z.
 * [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
 
 **Enjoy!**
+=======
+# rails-buddy
+Visual Studio Code extension for rails projects navigation
+>>>>>>> f2eb437c16fdd8d93cb70abced635dac8318d921
