@@ -10,7 +10,7 @@ class CommandRunner{
         const filePattern = 'app/models/**/*.rb'
         const fileMatcher = REG_EXP_PER_FILE_TYPE.MODEL
 
-        CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
+        return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
     }
     
     static rController() {
@@ -18,7 +18,7 @@ class CommandRunner{
         const filePattern = 'app/controllers/**/*.rb'
         const fileMatcher = REG_EXP_PER_FILE_TYPE.CONTROLLER
         
-        CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
+        return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
     }
     
     static rUnitTest() {
@@ -26,15 +26,15 @@ class CommandRunner{
         const filePattern = `test/unit/**/*.rb`
         const fileMatcher = REG_EXP_PER_FILE_TYPE.UNIT_TEST
         
-        CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
+        return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
     }
     
     static rFunctionalTest() {
         console.log('Running command rFunctionalTest')         
-        const filePattern = 'test/functional/**/*.rb'
+        const filePattern = 'test/{functional,controllers}/**/*.rb'
         const fileMatcher = REG_EXP_PER_FILE_TYPE.FUNCTIONAL_TEST
         
-        CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
+        return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
     }
     
     static rView() {
@@ -42,7 +42,7 @@ class CommandRunner{
         const filePattern = 'app/views/**/*.erb'
         const fileMatcher = REG_EXP_PER_FILE_TYPE.VIEW
         
-        CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
+        return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
     }
     
     static rMigration() {
@@ -50,7 +50,7 @@ class CommandRunner{
         const filePattern = 'db/migrations/**/*.rb'
         const fileMatcher = REG_EXP_PER_FILE_TYPE.MIGRATION
         
-        CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
+        return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
     }
 
     static rRelated(){
@@ -73,7 +73,7 @@ class CommandRunner{
         fileMatcher: RegExp, 
         optionSelectedCallback: (itemKey: String, fileUri: vscode.Uri) => void) {
 
-        vscode.workspace.findFiles(filePattern)
+        return vscode.workspace.findFiles(filePattern)
             .then(function (result) {
                 const fileNames = result.reduce(function (result, currentItem) {
                     let matchStr;
