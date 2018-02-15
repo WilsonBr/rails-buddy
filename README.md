@@ -34,13 +34,13 @@ All commands can be assigned to shortcut keys. The `Open Rails Related File` com
 
 ### 1.0.0
 
-* Initial release including support for the most common Rails files: 
-> * Models
-> * Controllers
-> * Unit (Model) tests
-> * Functional (Controller) tests
-> * Views
-> * Migrations
+Initial release including support for the most common Rails files: 
+ * Models
+ * Controllers
+ * Unit (Model) tests
+ * Functional (Controller) tests
+ * Views
+ * Migrations
 
-* Jump between related files
+Jump between related files
 -----------------------------------------------------------------------------------------------------------
