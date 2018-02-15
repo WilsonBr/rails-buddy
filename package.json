@@ -2,7 +2,7 @@
     "name": "rails-buddy",
     "displayName": "rails-buddy",
     "description": "Utility tools for easy navigation across Rails project files",
-    "version": "1.0.0-preview",
+    "version": "1.0.0",
     "preview": true,
     "publisher": "wilson-freitas",
     "engines": {
@@ -11,6 +11,14 @@
     "categories": [
         "Other"
     ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/WilsonBr/rails-buddy.git"
+    },
+    "bugs": {
+        "url": "https://github.com/WilsonBr/rails-buddy/issues"
+    },
+    "homepage": "https://github.com/WilsonBr/rails-buddy",
     "badges": [{
         "description": "MIT License",
         "href": "https://opensource.org/licenses/mit-license.php",
