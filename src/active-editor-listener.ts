@@ -58,7 +58,7 @@ class ActiveEditorListener {
                         console.warn(`Multiple matching paths while opening related rails file ${result.join(',')}`)
                     }
                     vscode.window.showTextDocument(result[0], {
-                        preserveFocus: true,
+                        preserveFocus: false,
                         preview: true
                     })
                 }

@@ -46,8 +46,8 @@ class CommandRunner{
     }
     
     static rMigration() {
-        console.log('Running command rView')         
-        const filePattern = 'db/migrations/**/*.rb'
+        console.log('Running command rMigration')         
+        const filePattern = 'db/migrate/**/*.rb'
         const fileMatcher = REG_EXP_PER_FILE_TYPE.MIGRATION
         
         return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);

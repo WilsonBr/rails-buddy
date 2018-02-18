@@ -4,7 +4,7 @@ export const REG_EXP_PER_FILE_TYPE = {
     UNIT_TEST: RegExp(/^.*test\/unit\/([^\.]+)\.rb/),
     FUNCTIONAL_TEST: RegExp(/^.*test\/(?:functional|controllers)\/([^\.]+)\.rb/),
     VIEW: RegExp(/^.*app\/views\/([^\.]+)(\.\w+)?\.erb/),
-    MIGRATION: RegExp(/^.*db\/migrations\/([^\.]+)\.rb/),
+    MIGRATION: RegExp(/^.*db\/migrate\/([^\.]+)\.rb/),
 }
 
 export const enum RailsFileType {

@@ -111,9 +111,9 @@ suite("Command Runner", () => {
                 
         findFilesSpy.returns(new Promise( (resolve) => {
             resolve([
-                {path: 'db/migrations/123_create_foos.rb'},
-                {path: 'db/migrations/456_create_foos.rb'},
-                {path: 'db/migrations/789_create_foos.rb'},
+                {path: 'db/migrate/123_create_foos.rb'},
+                {path: 'db/migrate/456_create_foos.rb'},
+                {path: 'db/migrate/789_create_foos.rb'},
             ])  
         }))
     

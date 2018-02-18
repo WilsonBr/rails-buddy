@@ -2,7 +2,7 @@
     "name": "rails-buddy",
     "displayName": "rails-buddy",
     "description": "Utility tools for easy navigation across Rails project files",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "preview": true,
     "publisher": "wilson-freitas",
     "engines": {
