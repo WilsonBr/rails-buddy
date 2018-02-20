@@ -36,6 +36,14 @@ All commands can be assigned to shortcut keys. The `Open Rails Related File` com
 
 ## Release Notes
 
+### 1.0.2
+1. Added _app/test/models_ as base path for model tests. _app/test/models_ was supported already.
+
+2. Added gif screencasts to README
+
+### 1.0.1
+1. Fixed base path for migration files
+
 ### 1.0.0
 
 Initial release:
