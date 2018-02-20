@@ -13,9 +13,13 @@ This extension provides shortcuts for easy navigation across rails projects file
 * `Open Rails View`
 * `Open Rails Migration`
 
+![Rails files open animation](images/rails_files_open.gif)
+
 It is also possible to use the `Open Rails Related File` to jump directly from:
 * `Model` <--> `Unit Test`
 * `Controller` <--> `Controller Test`
+
+![Jump between related files animation](images/jump_related.gif)
 
 
 ## Requirements

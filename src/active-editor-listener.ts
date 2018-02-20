@@ -11,11 +11,11 @@ class ActiveEditorListener {
     static onChange(activeEditor: vscode.TextEditor) {
         ActiveEditorListener.activeTextEditor = activeEditor
 
-        console.log(`Active changed to ${activeEditor.document.uri.path}`)
-
-        if(!activeEditor){
+        
+        if(!activeEditor || !activeEditor.document){
             return
         }
+        console.log(`Active changed to ${activeEditor.document.uri.path}`)
 
         const documentPath = activeEditor.document.uri.path
         if(REG_EXP_PER_FILE_TYPE.MODEL.exec(documentPath)){
@@ -71,7 +71,7 @@ class ActiveEditorListener {
             case RailsFileType.Model:
                 if(matcher = REG_EXP_PER_FILE_TYPE.MODEL.exec(documentPath)){
                     const testName = matcher[1].replace(/^(.+)$/, "$1_test.rb")
-                    documentOpener(`test/unit/${testName}`)
+                    documentOpener(`test/{unit,models}/${testName}`)
                 }
                 break
                 

@@ -57,12 +57,13 @@ suite("Command Runner", () => {
             resolve([
                 {path: 'test/unit/foo_test.rb'},
                 {path: 'test/unit/bar_test.rb'},
+                {path: 'test/models/another_model_test.rb'},
                 {path: 'test/unit/deep/foo_bar_test.rb'},
             ])  
         }))
 
         return CommandRunner.rUnitTest().then( () => {
-            assert.ok(vscodeWindowStub.calledWith(['foo', 'bar', 'deep/foo_bar']))
+            assert.ok(vscodeWindowStub.calledWith(['foo_test', 'bar_test', 'another_model_test', 'deep/foo_bar_test']))
         })
     });
     

@@ -23,7 +23,7 @@ class CommandRunner{
     
     static rUnitTest() {
         console.log('Running command rUnitTest')
-        const filePattern = `test/unit/**/*.rb`
+        const filePattern = `test/{unit,models}/**/*.rb`
         const fileMatcher = REG_EXP_PER_FILE_TYPE.UNIT_TEST
         
         return CommandRunner.userPickFile(filePattern, fileMatcher, CommandRunner.fileOpenCallback);
@@ -82,6 +82,7 @@ class CommandRunner{
                     }
                     return result;
                 }, {});
+                console.log(fileNames)
 
                 vscode.window.showQuickPick(Object.keys(fileNames), {
                     onDidSelectItem: function (item) {

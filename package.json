@@ -19,11 +19,13 @@
         "url": "https://github.com/WilsonBr/rails-buddy/issues"
     },
     "homepage": "https://github.com/WilsonBr/rails-buddy",
-    "badges": [{
-        "description": "MIT License",
-        "href": "https://opensource.org/licenses/mit-license.php",
-        "url": "https://badges.frapsoft.com/os/mit/mit.png?v=103"
-    }],
+    "badges": [
+        {
+            "description": "MIT License",
+            "href": "https://opensource.org/licenses/mit-license.php",
+            "url": "https://badges.frapsoft.com/os/mit/mit.png?v=103"
+        }
+    ],
     "activationEvents": [
         "workspaceContains:config/application.rb"
     ],
